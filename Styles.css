@@ -1,0 +1,150 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Cards Container */
+.cards {
+  display: grid;
+  background-image: linear-gradient(to right, rgb(189, 142, 54), rgb(188, 37, 165), rgb(103, 103, 221));
+  place-items: center;
+  min-height: 100vh;
+}
+
+/* Outer Container */
+.outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card Styling */
+.cards .card {
+  height: 300px;
+  width: 300px;
+  background-color:rgb(236, 182, 117);
+  padding: 1rem;
+  max-width: 50rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: inset 2px 3px 5px rgb(179, 204, 155);
+  animation: animate 15s infinite linear;
+  animation-delay: calc(3s * var(--delay));
+}
+
+/* Profile and Header Styling */
+.profile, .header {
+  display: flex;
+  text-align: left;
+}
+
+.header {
+  justify-content: space-between;
+}
+
+.profile {
+  margin-bottom: 0.5rem;
+}
+
+.demo {
+  background: #da8d4b;
+  height: 100px;
+  width: 270px;
+  box-shadow: inset 3px 5px rgba(193, 202, 143, 0.175);
+}
+
+.profile .demo {
+  border-radius: 7%;
+  object-fit: cover;
+  padding: 2px;
+  overflow: hidden;
+  margin-left: 2px;
+}
+
+.below-demo {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  height: 150px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.below-demo .circle {
+  width: 50px;
+  height: 50px;
+  background-color: #db8e4a;
+  border-radius: 50%;
+  margin-right: 40px;
+  margin-top: 50px;
+}
+
+.blanks {
+  text-align: end;
+  margin-top: 55px;
+}
+
+.below-demo .blanks {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  height: 40px;
+  width: 175px;
+  gap: 8px;
+}
+
+.below-demo .blank {
+  height: 135px;
+  background-color: #dd8f4b;
+  border-radius: 5px;
+}
+
+.below-demo .page {
+  width: 120px;
+  height: 50px;
+  background-color: #e89750;
+  border-radius: 5px;
+}
+
+.outer:hover .card {
+  animation-play-state: paused;
+}
+
+.cards .card:last-child {
+  animation-delay: calc(-3s * var(--delay));
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: translateY(20%) scale(0.5);
+  }
+  5%, 20% {
+    opacity: 0.4;
+    transform: translateY(100%) scale(0.7);
+  }
+  25%, 40% {
+    opacity: 1;
+    transform: translateY(20%) scale(1);
+  }
+  45%, 60% {
+    opacity: 0.4;
+    transform: translateY(-50%) scale(0.7);
+  }
+  60%, 100% {
+    opacity: 0;
+    transform: translateY(-10%) scale(0.5);
+  }
+}
+@media (max-width:467px){
+  .card{
+    font-size: 10px;
+    padding: 0.2rem;
+    margin: 5rem;
+  }
+} 
